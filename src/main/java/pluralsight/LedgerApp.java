@@ -41,4 +41,16 @@ public class LedgerApp {
             throw new RuntimeException("Error reading file " + fileName, e);
         }
     }
+
+    //Adds one transaction to the end of transaction.csv
+    public static void saveTransaction(Transaction t) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,true));
+            writer.write(t.toFileLine());
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException("Error writing to file");
+        }
+    }
 }
