@@ -80,4 +80,16 @@ public class LedgerApp {
             System.out.println(transactions.get(i).toFileLine());
         }
     }
+
+    //Makes a new list and adds positive transactions only and displays it
+    public static void displayDeposits() {
+
+        ArrayList<Transaction> deposits = new ArrayList<>();
+        for (Transaction t : transactions) {
+            if (t.getAmount() > 0) {
+                deposits.add(t);
+            }
+        }
+        displayTransactions(deposits);
+    }
 }
