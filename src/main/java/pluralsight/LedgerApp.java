@@ -117,4 +117,18 @@ public class LedgerApp {
         }
         displayTransactions(results);
     }
+
+    // Everything from last month (minusMonths handles January -> December of last year)
+    public static void previousMonth() {
+        LocalDate lastMonth = LocalDate.now().minusMonths(1);
+        ArrayList<Transaction> results = new ArrayList<>();
+
+        for (Transaction t : transactions) {
+            LocalDate d = t.getDate();
+            if (d.getYear() == lastMonth.getYear() && d.getMonth() == lastMonth.getMonth()) {
+                results.add(t);
+            }
+        }
+        displayTransactions(results);
+    }
 }
