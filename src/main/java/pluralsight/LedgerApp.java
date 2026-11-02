@@ -67,4 +67,17 @@ public class LedgerApp {
         input.nextLine(); //eats leftover
         return amount;
     }
+
+    //Displays transactions in reverse order newest to older
+    public static void displayTransactions(ArrayList<Transaction> transactions) {
+        System.out.println("-----------------");
+
+        if (transactions.isEmpty()) {
+            System.out.println("No transactions found!");
+            return;
+        }
+        for (int i = transactions.size() - 1; i >= 0; i--) {
+            System.out.println(transactions.get(i).toFileLine());
+        }
+    }
 }
