@@ -103,4 +103,18 @@ public class LedgerApp {
         }
         displayTransactions(payments);
     }
+
+    // Everything from the 1st of this month up to today
+    public static void monthToDate() {
+        LocalDate today = LocalDate.now();
+        ArrayList<Transaction> results = new ArrayList<>();
+
+        for (Transaction t : transactions) {
+            LocalDate d = t.getDate();
+            if (d.getYear() == today.getYear() && d.getMonth() == today.getMonth() && !d.isAfter(today)) {
+                results.add(t);
+            }
+        }
+        displayTransactions(results);
+    }
 }
