@@ -53,4 +53,18 @@ public class LedgerApp {
             throw new RuntimeException("Error writing to file");
         }
     }
+
+    // Keeps asking until the user types a real number
+    public static double askForAmount() {
+        System.out.print("Amount: ");
+
+        while (!input.hasNextDouble()) {
+            System.out.println("Please enter a valid amount");
+            input.nextLine(); //eats leftover
+            System.out.print("Amount: ");
+        }
+        double amount = input.nextDouble();
+        input.nextLine(); //eats leftover
+        return amount;
+    }
 }
