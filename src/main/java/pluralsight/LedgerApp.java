@@ -92,4 +92,15 @@ public class LedgerApp {
         }
         displayTransactions(deposits);
     }
+
+    //Makes a new list and adds negative transactions only and displays it
+    public static void displayPayments() {
+        ArrayList<Transaction> payments = new ArrayList<>();
+        for (Transaction t : transactions) {
+            if (t.getAmount() < 0) {
+                payments.add(t);
+            }
+        }
+        displayTransactions(payments);
+    }
 }
