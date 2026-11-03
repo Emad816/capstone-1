@@ -145,4 +145,16 @@ public class LedgerApp {
         }
         displayTransactions(results);
     }
+
+    public static void previousYear() {
+        int lastYear = LocalDate.now().getYear() - 1;
+        ArrayList<Transaction> results = new ArrayList<>();
+
+        for (Transaction t : transactions) {
+            if (t.getDate().getYear() == lastYear) {
+                results.add(t);
+            }
+        }
+        displayTransactions(results);
+    }
 }
