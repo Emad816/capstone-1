@@ -131,4 +131,18 @@ public class LedgerApp {
         }
         displayTransactions(results);
     }
+
+    // Everything from January 1st of this year up to today
+    public static void yearToDate() {
+        LocalDate today = LocalDate.now();
+        ArrayList<Transaction> results = new ArrayList<>();
+
+        for (Transaction t : transactions) {
+            LocalDate d = t.getDate();
+            if (d.getYear() == today.getYear() && !d.isAfter(today)) {
+                results.add(t);
+            }
+        }
+        displayTransactions(results);
+    }
 }
