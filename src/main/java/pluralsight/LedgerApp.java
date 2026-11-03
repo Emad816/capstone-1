@@ -104,6 +104,35 @@ public class LedgerApp {
         displayTransactions(payments);
     }
 
+    //////////////////Reports Screen////////////////
+    public static void reportsScreen() {
+        boolean running = true;
+
+        while (running) {
+            System.out.println();
+            System.out.println("------------ REPORTS ------------");
+            System.out.println("1) Month To Date");
+            System.out.println("2) Previous Month");
+            System.out.println("3) Year To Date");
+            System.out.println("4) Previous Year");
+            System.out.println("5) Search by Vendor");
+            System.out.println("0) Back");
+            System.out.print("Choose an option: ");
+
+            String choice = input.nextLine().trim();
+
+            switch (choice) {
+                case "1" -> monthToDate();
+                case "2" -> previousMonth();
+                case "3" -> yearToDate();
+                case "4" -> previousYear();
+                case "5" -> searchByVendor();
+                case "0" -> running = false;
+                default -> System.out.println("Invalid choice");
+            }
+        }
+    }
+
     // Everything from the 1st of this month up to today
     public static void monthToDate() {
         LocalDate today = LocalDate.now();
