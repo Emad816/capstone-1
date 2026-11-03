@@ -68,6 +68,33 @@ public class LedgerApp {
         return amount;
     }
 
+    ////////////////Ledger Screen///////////////
+    public static void ledgerScreen() {
+        boolean running = true;
+        while (running) {
+            System.out.println("---------------------------------");
+            System.out.println("----------LEDGER SCREEN----------");
+            System.out.println("A) All");
+            System.out.println("D) Deposits");
+            System.out.println("P) Payments");
+            System.out.println("R) Reports");
+            System.out.println("H) Home");
+            System.out.print("Choose an option: ");
+
+            String choice = input.nextLine().trim().toUpperCase();
+
+            switch (choice) {
+                case "A" -> displayTransactions(transactions);
+                case "D" -> displayDeposits();
+                case "P" -> displayPayments();
+                case "R" -> reportsScreen();
+                case "H" -> running = false;
+                default -> System.out.println("Invalid choice");
+
+            }
+        }
+    }
+
     //Displays transactions in reverse order newest to older
     public static void displayTransactions(ArrayList<Transaction> transactions) {
         System.out.println("-----------------");
