@@ -157,4 +157,18 @@ public class LedgerApp {
         }
         displayTransactions(results);
     }
+
+
+    public static void searchByVendor() {
+        System.out.print("Enter the vendor name: ");
+        String vendor = input.nextLine().trim();
+        ArrayList<Transaction> results = new ArrayList<>();
+
+        for (Transaction t : transactions) {
+            if (t.getVendor().equalsIgnoreCase(vendor)) {
+                results.add(t);
+            }
+        }
+        displayTransactions(results);
+    }
 }
