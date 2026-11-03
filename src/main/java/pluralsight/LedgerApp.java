@@ -54,6 +54,28 @@ public class LedgerApp {
         }
     }
 
+    public static void addDeposit() {
+        System.out.println();
+        System.out.println("--- Add Deposit ---");
+
+        System.out.print("Description: ");
+        String description = input.nextLine().trim();
+
+        System.out.print("Vendor: ");
+        String vendor = input.nextLine().trim();
+
+        double amount = askForAmount();
+        if (amount <= 0) {
+            System.out.println("A deposit has to be more than 0. Deposit not saved.");
+            return;
+        }
+
+        Transaction t = new Transaction(LocalDate.now(), LocalTime.now(), description, vendor, amount);
+        transactions.add(t);
+        saveTransaction(t);
+        System.out.println("Deposit saved!");
+    }
+
     // Keeps asking until the user types a real number
     public static double askForAmount() {
         System.out.print("Amount: ");
