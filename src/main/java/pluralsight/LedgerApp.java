@@ -76,6 +76,31 @@ public class LedgerApp {
         System.out.println("Deposit saved!");
     }
 
+    public static void makePayment() {
+        System.out.println();
+        System.out.println("--- Make Payment ---");
+
+        System.out.print("Description: ");
+        String description = input.nextLine().trim();
+
+        System.out.print("Vendor: ");
+        String vendor = input.nextLine().trim();
+
+        double amount = askForAmount();
+        if (amount == 0) {
+            System.out.println("A payment can't be 0. Payment not saved.");
+            return;
+        }
+
+        //Save payments as negative numbers
+        amount = -Math.abs(amount);
+
+        Transaction t = new Transaction(LocalDate.now(), LocalTime.now(), description, vendor, amount);
+        transactions.add(t);
+        saveTransaction(t);
+        System.out.println("Payment saved!");
+    }
+
     // Keeps asking until the user types a real number
     public static double askForAmount() {
         System.out.print("Amount: ");
