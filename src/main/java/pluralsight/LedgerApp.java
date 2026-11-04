@@ -54,6 +54,31 @@ public class LedgerApp {
         }
     }
 
+    //////////////////////////////Home screen//////////////////////////////
+    public static void homeScreen() {
+        boolean running = true;
+
+        while (running) {
+            System.out.println("----------ACCOUNTING LEDGER----------");
+            System.out.println("-------------------------------------");
+            System.out.println("D) Add Deposit");
+            System.out.println("P) Make Payment (debit)");
+            System.out.println("L) Ledger");
+            System.out.println("X) Exit");
+            System.out.print("Choose an option: ");
+
+            String choice = input.nextLine().trim().toUpperCase();
+
+            switch (choice) {
+                case "D" -> addDeposit();
+                case "P" -> makePayment();
+                case "L" -> ledgerScreen();
+                case "X" -> running = false;
+                default -> System.out.println("Invalid choice");
+            }
+        }
+    }
+
     public static void addDeposit() {
         System.out.println();
         System.out.println("--- Add Deposit ---");
