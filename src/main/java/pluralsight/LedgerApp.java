@@ -170,7 +170,8 @@ public class LedgerApp {
             String choice = input.nextLine().trim().toUpperCase();
 
             switch (choice) {
-                case "A" -> displayTransactions(transactions);
+                case "A" -> {System.out.println("--- All Transactions ---");
+                        displayTransactions(transactions);}
                 case "D" -> displayDeposits();
                 case "P" -> displayPayments();
                 case "R" -> reportsScreen();
@@ -203,6 +204,7 @@ public class LedgerApp {
                 deposits.add(t);
             }
         }
+        System.out.println("--- Deposits ---");
         displayTransactions(deposits);
     }
 
@@ -214,6 +216,7 @@ public class LedgerApp {
                 payments.add(t);
             }
         }
+        System.out.println("--- Payments ---");
         displayTransactions(payments);
     }
 
@@ -251,6 +254,8 @@ public class LedgerApp {
         LocalDate today = LocalDate.now();
         ArrayList<Transaction> results = new ArrayList<>();
 
+        System.out.println("--- Month To Date ---");
+
         for (Transaction t : transactions) {
             LocalDate d = t.getDate();
             if (d.getYear() == today.getYear() && d.getMonth() == today.getMonth() && !d.isAfter(today)) {
@@ -264,6 +269,8 @@ public class LedgerApp {
     public static void previousMonth() {
         LocalDate lastMonth = LocalDate.now().minusMonths(1);
         ArrayList<Transaction> results = new ArrayList<>();
+
+        System.out.println("--- Previous Month ---");
 
         for (Transaction t : transactions) {
             LocalDate d = t.getDate();
@@ -279,6 +286,8 @@ public class LedgerApp {
         LocalDate today = LocalDate.now();
         ArrayList<Transaction> results = new ArrayList<>();
 
+        System.out.println("--- Year To Date ---");
+
         for (Transaction t : transactions) {
             LocalDate d = t.getDate();
             if (d.getYear() == today.getYear() && !d.isAfter(today)) {
@@ -292,6 +301,8 @@ public class LedgerApp {
         int lastYear = LocalDate.now().getYear() - 1;
         ArrayList<Transaction> results = new ArrayList<>();
 
+        System.out.println("--- Previous Year ---");
+
         for (Transaction t : transactions) {
             if (t.getDate().getYear() == lastYear) {
                 results.add(t);
@@ -304,6 +315,7 @@ public class LedgerApp {
     public static void searchByVendor() {
         System.out.print("Enter the vendor name: ");
         String vendor = input.nextLine().trim();
+        System.out.println("--- Transactions for " + vendor + " ---");
         ArrayList<Transaction> results = new ArrayList<>();
 
         for (Transaction t : transactions) {
