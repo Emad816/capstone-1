@@ -14,6 +14,17 @@ public class LedgerApp {
     static DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
     static Scanner input = new Scanner(System.in);
 
+    public static void main(String[] args) {
+
+
+        loadTransactions();
+
+        //runs home screen
+        homeScreen();
+
+        System.out.println("Good bye!");
+    }
+
     /////////////////////file reading and writing methods//////////////////////
 
     //read transactions file into transaction list
