@@ -37,6 +37,9 @@ public class LedgerApp {
                 if (line.trim().isEmpty()) {
                     continue;
                 }
+                if (line.startsWith("date")) {
+                    continue; // skips the header line
+                }
                 String[] transaction = line.split("\\|");
 
                 LocalDate date = LocalDate.parse((transaction[0]));
