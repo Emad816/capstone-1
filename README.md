@@ -12,9 +12,8 @@ Every transaction is saved to `transactions.csv`, so your ledger is still there 
 ## How to run
 
 1. Clone the repo and open it in IntelliJ.
-2. Make sure `transactions.csv` is in the project root folder (the same folder as `src`).
-3. Run `LedgerApp.java` (package `com.pluralsight`).
-4. Use the letters and numbers on screen to move around.
+2. Run `LedgerApp.java` (package `com.pluralsight`).
+3. Use the letters and numbers on screen to move around.
 
 ## File format
 
